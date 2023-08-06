@@ -1,0 +1,25 @@
+.movies {
+  @include flex(row, flex-start, baseline);
+  flex-wrap: wrap;
+  padding-top: 30px;
+
+  &__item {
+    @include flex(row, center, center);
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .movies__item {
+    width: 33.3%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .movies__item {
+    width: 25%;
+  }
+}
