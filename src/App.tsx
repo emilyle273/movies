@@ -1,7 +1,6 @@
 import { FC, lazy, Suspense } from 'react'
 import { Navigate, Routes, Route, BrowserRouter } from 'react-router-dom'
 
-import Header from '@components/Header'
 import { MovieProvider } from '@context/Movie'
 
 const Home = lazy(() => import('@pages/Home'))
@@ -12,7 +11,6 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <MovieProvider>
-        <Header />
         <Routes>
           <Route
             path='/movies'

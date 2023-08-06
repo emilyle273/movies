@@ -126,19 +126,24 @@
       background-color: $black;
 
       &__item {
-        margin-bottom: 1.8rem;
-        font-weight: 500;
-        margin-left: 1.5rem;
+        font-size: $font-base;
+        margin-bottom: 30px;
+        font-weight: $font-weight-bolder;
+        margin-left: 24px;
 
         a {
           color: $gray-100;
           text-decoration: none;
-          font-weight: 500;
           transition: color 0.3s ease-in-out;
-          font-size: $font-base;
 
           &:hover {
-            color: #117964;
+            color: $green-100;
+          }
+        }
+
+        &--active {
+          a {
+            color: $green-100;
           }
         }
       }
@@ -159,29 +164,15 @@
         .logo {
           display: block;
           font-size: $font-lg;
+          color: $gray-100;
         }
+
         .search {
           position: relative;
           width: 60%;
           height: 36px;
           left: 0;
           margin-left: 20px;
-
-          input {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: $rounded-sm;
-            background-color: $gray-200;
-            padding-left: 8px;
-          }
-
-          img {
-            position: absolute;
-            width: 25px;
-            top: 5px;
-            right: 10px;
-          }
         }
       }
 
@@ -204,19 +195,8 @@
         overflow: auto;
 
         &__item {
-          list-style: none;
-          font-size: 1.3rem;
           margin-bottom: 0;
-
-          a {
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease-in-out;
-
-            &:hover {
-              color: #117964;
-            }
-          }
+          font-size: $font-md;
         }
       }
     }

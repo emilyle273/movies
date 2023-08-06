@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 
 import DetailsPlaceholder from '@components/DetailsPlaceholder'
 import LazyImage from '@components/LazyImage'
+import Header from '@components/Header'
 
 import { MovieContext } from '@context/Movie'
 
@@ -50,30 +51,36 @@ const Details = () => {
 
   if (state.loading) {
     return (
-      <section className='container main'>
-        <DetailsPlaceholder />
-      </section>
+      <>
+        <Header />
+        <section className='container main'>
+          <DetailsPlaceholder />
+        </section>
+      </>
     )
   }
 
   if (!movieDetails) {
-    return null
+    return <Header />
   }
   const { poster_path, title, overview, release_date } = movieDetails
 
   return (
-    <section className='container main'>
-      <div className='movie-details'>
-        <div className='movie-details__image'>
-          <LazyImage src={`${poster_path ? `${IMAGE_LINK}${poster_path}` : NoImage}`} alt={title} />
+    <>
+      <Header />
+      <section className='container main'>
+        <div className='movie-details'>
+          <div className='movie-details__image'>
+            <LazyImage src={`${poster_path ? `${IMAGE_LINK}${poster_path}` : NoImage}`} alt={title} />
+          </div>
+          <div className='movie-details__info'>
+            <h3 className='title'>{title}</h3>
+            <p className='description'>{overview}</p>
+            <p className='release-date'>Release date: {formatDate(release_date)}</p>
+          </div>
         </div>
-        <div className='movie-details__info'>
-          <h3 className='title'>{title}</h3>
-          <p className='description'>{overview}</p>
-          <p className='release-date'>Release date: {formatDate(release_date)}</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 

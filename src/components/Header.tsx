@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { useContext, useMemo, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 
 import ErrorToast from '@components/ErrorToast'
 import Search from '@components/Search'
@@ -10,16 +10,21 @@ import TABS from '@constants/tabs'
 
 const Header = () => {
   const { state } = useContext(MovieContext)
+  const [searchParams] = useSearchParams()
+  const filter = useMemo(() => searchParams.get('filter'), [searchParams])
+  const [openedMenu, setOpenedMenu] = useState(false)
 
   return (
     <>
       <header className='header'>
         <nav className='navbar container'>
           <div className='navbar__left'>
-            <h1 className='logo'>Movie</h1>
+            <Link to='/' className='logo'>
+              <h1>Movie</h1>
+            </Link>
             <Search />
           </div>
-          <input type='checkbox' name='' id='' />
+          <input type='checkbox' checked={openedMenu} name='' id='' onClick={() => setOpenedMenu(!openedMenu)} />
           <div className='hamburger'>
             <span className='hamburger__line hamburger__line--1'></span>
             <span className='hamburger__line hamburger__line--2'></span>
@@ -27,9 +32,8 @@ const Header = () => {
           </div>
           <ul className='menu'>
             {TABS.map((item) => (
-              <li className='menu__item' key={item.name}>
-                <Link to={item.link}>
-                  {/* <img src={PlayingIcon} alt='playing' /> */}
+              <li className={`menu__item${filter === item.id ? ' menu__item--active' : ''}`} key={item.name}>
+                <Link to={item.link} onClick={() => setOpenedMenu(false)}>
                   {item.name}
                 </Link>
               </li>

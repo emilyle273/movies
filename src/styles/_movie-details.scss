@@ -24,7 +24,8 @@
 
     .title {
       font-size: $font-md;
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-bolder;
+      line-height: $line-height-lg;
       margin-bottom: 20px;
     }
 
@@ -33,7 +34,7 @@
     }
 
     .release-date {
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-bolder;
     }
   }
 }

@@ -8,6 +8,7 @@ import { fetchData } from '@helpers/request'
 
 import { LATEST, SEARCH_MOVIES } from '@constants/api'
 import ACTIONS from '@constants/actions'
+import Header from '@components/Header'
 
 const Home = () => {
   const { dispatch } = useContext(MovieContext)
@@ -48,9 +49,12 @@ const Home = () => {
   }, [fetchMovies])
 
   return (
-    <section className='container main'>
-      <Movies />
-    </section>
+    <>
+      <Header />
+      <section className='container main'>
+        <Movies />
+      </section>
+    </>
   )
 }
 

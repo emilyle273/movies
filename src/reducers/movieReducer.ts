@@ -10,7 +10,8 @@ const movieReducer = (state: MovieState, action: Action): MovieState => {
     case ACTIONS.GET_MOVIES_REQUEST:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       }
 
     case ACTIONS.GET_MOVIES_SUCCESS:
@@ -32,7 +33,8 @@ const movieReducer = (state: MovieState, action: Action): MovieState => {
     case ACTIONS.GET_MOVIE_DETAILS_REQUEST:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       }
 
     case ACTIONS.GET_MOVIE_DETAILS_SUCCESS:
