@@ -41,9 +41,9 @@ The following **additional** features are implemented:
 
 - Download or clone the repository
 - Follow **.env.sample** to add file **.env**
-- run
+- Run
   + `yarn install`
   + `yarn dev`
-- open browser at `http://localhost:3000/`
+- Open browser at `http://localhost:3000/`
 
 ## Video Walkthrough
