@@ -1,0 +1,41 @@
+// color
+$black: #000;
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+$red-100: #ff5252;
+$green-100: #117964;
+
+// typography
+$font-sm: 14px;
+$font-base: 16px;
+$font-lg: 32px;
+$font-md: 20px;
+
+// box-shadow
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+// font-weight
+$font-weight-bold: 500;
+$font-weight-bolder: 700;
+
+// border radius
+$rounded-sm: 5px;
+$rounded-lg: 8px;
+
+// line-height
+$line-height-md: 20px;
+$line-height-lg: 32px;
+
+$border-sm: 1px solid $gray-800;
+
+$header-height: 64px;

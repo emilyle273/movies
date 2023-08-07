@@ -1,0 +1,14 @@
+.not-found {
+  text-align: center;
+  color: $gray-100; /* Set text color to white */
+  padding-top: 75px;
+
+  &__heading {
+    font-size: $font-lg;
+    margin-bottom: 10px;
+  }
+
+  &__message {
+    font-size: $font-md;
+  }
+}

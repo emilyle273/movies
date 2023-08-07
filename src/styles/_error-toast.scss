@@ -1,0 +1,35 @@
+.error-toast {
+  @include position(fixed, 20px, null, null, 50%);
+  min-width: 300px;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: $red-100;
+  color: $gray-100;
+  border-radius: $rounded-sm;
+  box-shadow: $shadow-sm;
+  z-index: 9999;
+  animation: slideDown 0.3s ease-in-out;
+  min-height: 40px;
+
+  @keyframes slideDown {
+    from {
+      top: -100px;
+    }
+    to {
+      top: 20px;
+    }
+  }
+
+  &__message {
+    margin-top: 12px;
+  }
+
+  &__close {
+    @include position(absolute, 5px, 5px);
+    background: transparent;
+    border: none;
+    color: $gray-100;
+    font-size: $font-sm;
+    cursor: pointer;
+  }
+}
