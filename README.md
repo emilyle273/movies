@@ -18,12 +18,12 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] Implement segmented control to switch between list view and grid view.
+- [x] Implement segmented control to switch between list view and grid view.
 - [x] All images fade in.
 - [x] Implement lazy load image.
 - [x] Customize the highlight and selection effect of the cell.
 - [x] Improve UX loading by skeleton loading.
-- [x] Enhance responsive.
+- [ ] Enhance responsive.
 
 The following **additional** features are implemented:
 
@@ -47,3 +47,4 @@ The following **additional** features are implemented:
 - Open browser at `http://localhost:3000/`
 
 ## Video Walkthrough
+- [video](https://drive.google.com/file/d/13TarfeMy8_dYoem6NOkCzxHjXKhV40Qy/view?usp=share_link) 
