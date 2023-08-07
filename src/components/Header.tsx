@@ -49,7 +49,7 @@ const Header = () => {
             ))}
           </ul>
           <button className='view-mode' onClick={switchViewMode}>
-            <img src={state.viewMode === VIEW_MODE.grid ? GridIcon : ListIcon} alt='view-mode' />
+            <img src={state.viewMode === VIEW_MODE.grid ? ListIcon : GridIcon} alt='view-mode' />
           </button>
         </nav>
       </header>
