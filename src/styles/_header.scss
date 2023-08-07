@@ -31,8 +31,20 @@
     display: block;
     position: relative;
     height: 64px;
-    // display: flex;
     justify-content: space-between;
+
+    .view-mode {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      img {
+        position: absolute;
+        right: 10px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+      }
+    }
 
     &__left {
       @include flex(row, space-between, center);
@@ -46,7 +58,7 @@
         position: absolute;
         top: 25%;
         height: 36px;
-        width: 70%;
+        width: 60%;
         left: 25%;
 
         input {
@@ -123,7 +135,7 @@
       padding-left: 40px;
       transition: transform 0.5s ease-in-out;
       overflow: scroll;
-      background-color: $black;
+      background-color: $gray-900;
 
       &__item {
         font-size: $font-base;
@@ -181,8 +193,17 @@
         display: none;
       }
 
+      .view-mode {
+        img {
+          position: inherit;
+          right: 0;
+          top: 0;
+          width: 30px;
+          height: 30px;
+        }
+      }
+
       .menu {
-        order: 2;
         display: flex;
         padding-top: 0;
         transform: unset;
@@ -193,6 +214,7 @@
         transition: unset;
         height: auto;
         overflow: auto;
+        background: $black;
 
         &__item {
           margin-bottom: 0;

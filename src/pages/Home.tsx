@@ -1,40 +1,38 @@
-import { useCallback, useContext, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useCallback, useContext, useEffect, memo } from 'react'
+import { useLocation, useSearchParams } from 'react-router-dom'
 
 import Movies from '@components/Movies'
 
 import { MovieContext } from '@context/Movie'
 import { fetchData } from '@helpers/request'
 
-import { LATEST, SEARCH_MOVIES } from '@constants/api'
+import { API_ENPOINTS } from '@constants/api'
 import ACTIONS from '@constants/actions'
 import Header from '@components/Header'
 
 const Home = () => {
   const { dispatch } = useContext(MovieContext)
   const [searchParams] = useSearchParams()
+  const { pathname } = useLocation()
 
   const fetchMovies = useCallback(async () => {
     try {
       const query = searchParams.get('query')
-      const filter = searchParams.get('filter') || ''
-      // const currentPage = pathname.split('/')[1]
+      const filter = pathname.split('/')[1]
+
+      const endPoint = query ? API_ENPOINTS[filter](query) : API_ENPOINTS[filter]()
 
       dispatch({
         type: ACTIONS.GET_MOVIES_REQUEST
       })
 
-      const endPoint = query ? SEARCH_MOVIES(query) : LATEST(filter)
+      const response = await fetchData(endPoint)
 
-      if (endPoint) {
-        const response = await fetchData(endPoint)
-
-        if (response.data.results) {
-          dispatch({
-            payload: response.data.results,
-            type: ACTIONS.GET_MOVIES_SUCCESS
-          })
-        }
+      if (response.data.results) {
+        dispatch({
+          payload: response.data.results,
+          type: ACTIONS.GET_MOVIES_SUCCESS
+        })
       }
     } catch (error: any) {
       dispatch({
@@ -42,7 +40,7 @@ const Home = () => {
         type: ACTIONS.GET_MOVIES_FAIL
       })
     }
-  }, [dispatch, searchParams])
+  }, [dispatch, pathname, searchParams])
 
   useEffect(() => {
     fetchMovies()
@@ -58,4 +56,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default memo(Home)

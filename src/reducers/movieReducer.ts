@@ -2,6 +2,7 @@ import ACTIONS from '@constants/actions'
 import { Action, MovieState } from '@context/Movie'
 
 import { Movie } from '../types'
+import { VIEW_MODE } from '@constants/tabs'
 
 const movieReducer = (state: MovieState, action: Action): MovieState => {
   const { type, payload } = action
@@ -51,6 +52,12 @@ const movieReducer = (state: MovieState, action: Action): MovieState => {
         ...state,
         error: payload as string,
         loading: false
+      }
+
+    case ACTIONS.SWITCH_VIEW_MODE:
+      return {
+        ...state,
+        viewMode: state.viewMode === VIEW_MODE.grid ? VIEW_MODE.list : VIEW_MODE.grid
       }
 
     default:

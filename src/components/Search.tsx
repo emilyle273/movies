@@ -23,7 +23,7 @@ const Search = () => {
         onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
           const { value } = e.currentTarget
           if (e.code === KEY_CODES.ENTER) {
-            navigate(value ? `/movies?query=${value}` : '/movies', { replace: true })
+            navigate(value ? `/search?query=${value}` : '/search', { replace: true })
           }
         }}
         value={searchKey}

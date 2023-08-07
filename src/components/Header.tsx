@@ -1,18 +1,27 @@
-import { useContext, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 import ErrorToast from '@components/ErrorToast'
 import Search from '@components/Search'
 
 import { MovieContext } from '@context/Movie'
 
-import TABS from '@constants/tabs'
+import GridIcon from '@assets/icons/grid.svg'
+import ListIcon from '@assets/icons/list.svg'
+
+import TABS, { VIEW_MODE } from '@constants/tabs'
+import ACTIONS from '@constants/actions'
 
 const Header = () => {
-  const { state } = useContext(MovieContext)
-  const [searchParams] = useSearchParams()
-  const filter = useMemo(() => searchParams.get('filter'), [searchParams])
+  const { state, dispatch } = useContext(MovieContext)
+  const { pathname } = useLocation()
   const [openedMenu, setOpenedMenu] = useState(false)
+
+  const switchViewMode = () => {
+    dispatch({
+      type: ACTIONS.SWITCH_VIEW_MODE
+    })
+  }
 
   return (
     <>
@@ -24,7 +33,7 @@ const Header = () => {
             </Link>
             <Search />
           </div>
-          <input type='checkbox' checked={openedMenu} name='' id='' onClick={() => setOpenedMenu(!openedMenu)} />
+          <input type='checkbox' checked={openedMenu} name='' id='' onChange={() => setOpenedMenu(!openedMenu)} />
           <div className='hamburger'>
             <span className='hamburger__line hamburger__line--1'></span>
             <span className='hamburger__line hamburger__line--2'></span>
@@ -32,13 +41,16 @@ const Header = () => {
           </div>
           <ul className='menu'>
             {TABS.map((item) => (
-              <li className={`menu__item${filter === item.id ? ' menu__item--active' : ''}`} key={item.name}>
+              <li className={`menu__item${pathname === item.link ? ' menu__item--active' : ''}`} key={item.name}>
                 <Link to={item.link} onClick={() => setOpenedMenu(false)}>
                   {item.name}
                 </Link>
               </li>
             ))}
           </ul>
+          <button className='view-mode' onClick={switchViewMode}>
+            <img src={state.viewMode === VIEW_MODE.grid ? GridIcon : ListIcon} alt='view-mode' />
+          </button>
         </nav>
       </header>
       {state.error && <ErrorToast message={state.error} />}

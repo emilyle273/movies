@@ -2,20 +2,23 @@ import { Dispatch, createContext, useReducer } from 'react'
 import ACTIONS from '@constants/actions'
 import movieReducer from '@reducers/movieReducer'
 
-import { Movie } from '../types'
+import { Movie, ViewMode } from '../types'
+import { VIEW_MODE } from '@constants/tabs'
 
 export interface MovieState {
   loading: boolean
   error: string | null
   movieDetails: Movie | null
   movies: Movie[]
+  viewMode: ViewMode
 }
 
 export const initialState = {
   loading: false,
   error: null,
   movieDetails: null,
-  movies: []
+  movies: [],
+  viewMode: VIEW_MODE.grid
 } as MovieState
 
 export type Action = {

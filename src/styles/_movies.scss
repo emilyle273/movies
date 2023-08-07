@@ -4,11 +4,18 @@
   padding-top: 30px;
 
   &__item {
-    @include flex(row, center, center);
     width: 100%;
     padding: 10px;
     margin-top: 5px;
     box-sizing: border-box;
+  }
+
+  &--list {
+    @include flex(column, flex-start, baseline);
+
+    .movies__item {
+      width: 100%;
+    }
   }
 }
 

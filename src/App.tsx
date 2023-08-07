@@ -1,5 +1,5 @@
 import { FC, lazy, Suspense } from 'react'
-import { Navigate, Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
 import { MovieProvider } from '@context/Movie'
 
@@ -9,18 +9,41 @@ const NotFound = lazy(() => import('@pages/NotFound'))
 
 const App: FC = () => {
   return (
-    <BrowserRouter>
-      <MovieProvider>
+    <MovieProvider>
+      <BrowserRouter>
         <Routes>
           <Route
-            path='/movies'
+            path='/'
             element={
               <Suspense fallback={<>...</>}>
                 <Home />
               </Suspense>
             }
           />
-          <Route path='/' element={<Navigate to='/movies?filter=now_playing' />} />
+          <Route
+            path='/now_playing'
+            element={
+              <Suspense fallback={<>...</>}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/top_rated'
+            element={
+              <Suspense fallback={<>...</>}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/search'
+            element={
+              <Suspense fallback={<>...</>}>
+                <Home />
+              </Suspense>
+            }
+          />
           <Route
             path='/movie/:id'
             element={
@@ -31,8 +54,8 @@ const App: FC = () => {
           />
           <Route path='*' element={<NotFound />} />
         </Routes>
-      </MovieProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </MovieProvider>
   )
 }
 
