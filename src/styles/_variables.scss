@@ -15,9 +15,10 @@ $red-100: #ff5252;
 $green-100: #117964;
 
 // typography
-$font-base: 1rem;
-$font-lg: 2rem;
-$font-md: 1.2rem;
+$font-sm: 14px;
+$font-base: 16px;
+$font-lg: 32px;
+$font-md: 20px;
 
 // box-shadow
 $shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -28,12 +29,12 @@ $font-weight-bold: 500;
 $font-weight-bolder: 700;
 
 // border radius
-$rounded-sm: 0.375rem;
-$rounded-lg: 0.5rem;
+$rounded-sm: 5px;
+$rounded-lg: 8px;
 
 // line-height
-$line-height-md: 1.25rem;
-$line-height-lg: 2rem;
+$line-height-md: 20px;
+$line-height-lg: 32px;
 
 $border-sm: 1px solid $gray-800;
 

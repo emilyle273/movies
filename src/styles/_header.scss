@@ -1,5 +1,5 @@
 .header {
-  position: fixed;
+  @include position(fixed, 0, 0);
   width: 100%;
   background: $black;
   color: $gray-100;
@@ -34,13 +34,12 @@
     justify-content: space-between;
 
     .view-mode {
+      @include position(absolute, 18px, 10px);
       background-color: transparent;
       border: none;
       cursor: pointer;
+
       img {
-        position: absolute;
-        right: 10px;
-        top: 20px;
         width: 30px;
         height: 30px;
       }
@@ -55,11 +54,9 @@
       }
 
       .search {
-        position: absolute;
-        top: 25%;
+        @include position(absolute, 25%, null, null, 25%);
         height: 36px;
         width: 60%;
-        left: 25%;
 
         input {
           width: 100%;
@@ -71,21 +68,17 @@
         }
 
         img {
-          position: absolute;
+          @include position(absolute, 5px, 10px);
           width: 25px;
-          top: 5px;
-          right: 10px;
         }
       }
     }
 
     input[type='checkbox'] {
-      position: absolute;
+      @include position(absolute, 20px, null, null, 20px);
       display: block;
       height: 32px;
       width: 30px;
-      top: 20px;
-      left: 20px;
       z-index: 5;
       opacity: 0;
       cursor: pointer;
@@ -194,10 +187,8 @@
       }
 
       .view-mode {
+        @include position(inherit, 0, 0);
         img {
-          position: inherit;
-          right: 0;
-          top: 0;
           width: 30px;
           height: 30px;
         }

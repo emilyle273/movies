@@ -1,7 +1,12 @@
 .movies {
-  @include flex(row, flex-start, baseline);
+  @include flex(row, center, baseline);
   flex-wrap: wrap;
   padding-top: 30px;
+
+  &__no-results {
+    color: $gray-100;
+    font-size: $font-md;
+  }
 
   &__item {
     width: 100%;
@@ -11,7 +16,7 @@
   }
 
   &--list {
-    @include flex(column, flex-start, baseline);
+    @include flex(column, center, center);
 
     .movies__item {
       width: 100%;

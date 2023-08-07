@@ -1,16 +1,15 @@
 .error-toast {
-  position: fixed;
-  top: 20px;
-  left: 50%;
+  @include position(fixed, 20px, null, null, 50%);
+  min-width: 300px;
   transform: translateX(-50%);
   padding: 10px 20px;
-  background-color: #ff5252;
-  color: #fff;
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: $red-100;
+  color: $gray-100;
+  border-radius: $rounded-sm;
+  box-shadow: $shadow-sm;
   z-index: 9999;
   animation: slideDown 0.3s ease-in-out;
-  min-height: 40;
+  min-height: 40px;
 
   @keyframes slideDown {
     from {
@@ -26,13 +25,11 @@
   }
 
   &__close {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    @include position(absolute, 5px, 5px);
     background: transparent;
     border: none;
-    color: #fff;
-    font-size: 14px;
+    color: $gray-100;
+    font-size: $font-sm;
     cursor: pointer;
   }
 }

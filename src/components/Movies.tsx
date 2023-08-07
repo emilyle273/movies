@@ -15,13 +15,17 @@ const Movies = () => {
 
   return (
     <div className={`movies${state.viewMode === VIEW_MODE.list ? ' movies--list' : ''}`}>
-      {state.movies.map((item) => {
-        return (
-          <div className='movies__item' key={item.id}>
-            <MovieCard movie={item} />
-          </div>
-        )
-      })}
+      {state.movies.length ? (
+        state.movies.map((item) => {
+          return (
+            <div className='movies__item' key={item.id}>
+              <MovieCard movie={item} />
+            </div>
+          )
+        })
+      ) : (
+        <h3 className='movies__no-results'>There are no results</h3>
+      )}
     </div>
   )
 }
