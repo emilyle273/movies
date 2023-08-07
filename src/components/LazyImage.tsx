@@ -19,11 +19,10 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt }) => {
     const handleIntersect: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && imageRef.current) {
-          // Load the image when it becomes visible
           imageRef.current.src = src
           imageRef.current.classList.add('lazy-image--loaded')
           if (observer.current) {
-            observer.current.unobserve(entry.target) // Unobserve after loading
+            observer.current.unobserve(entry.target)
           }
         }
       })
@@ -37,7 +36,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt }) => {
 
     return () => {
       if (observer.current) {
-        observer.current.disconnect() // Disconnect the observer when the component unmounts
+        observer.current.disconnect()
       }
     }
   }, [src])
